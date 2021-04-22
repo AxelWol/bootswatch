@@ -7,18 +7,58 @@
 //
 //## Gray and brand colors for use across Bootstrap.
 
-@gray-base:              #000;
-@gray-darker:            lighten(@gray-base, 13.5%); // #222
-@gray-dark:              lighten(@gray-base, 20%);   // #333
-@gray:                   lighten(@gray-base, 33.5%); // #555
-@gray-light:             lighten(@gray-base, 60%);   // #999
-@gray-lighter:           lighten(@gray-base, 90%); // #eee
+@white: #fff;
+@gray-300: #EDEDED;
+@black: #000;
 
-@brand-primary:         #2780E3;
-@brand-success:         #3FB618;
-@brand-info:            #9954BB;
-@brand-warning:         #FF7518;
-@brand-danger:          #FF0039;
+/*Dataport Theme Colors*/
+@red: #E10019;
+@dunkelblue: #003064;
+@dunkelblau90: #194472;
+@dunkelblau75: #40648B;
+@dunkelblau50: #7F97B0;
+@dunkelblau25: #BFCBD8; // Linie
+
+@mittelblau: #005FA9;
+@mittelblau90: #196CB1;
+@mittelblau50: #7FADD4;
+@mittelblau25: #BFD6E9;
+
+@highlightblau: #2B88D8;
+@hyperlink: #005CA9;
+
+@green: #107C10;
+@tagrot: #E10019;
+@statusgruen: @green;
+@blockorange: #FEC500;
+
+@grau25: #BFBFBF;
+@disabledGray: #B3B3B3;
+@disabledPlaceholder:#767676; // TODO: Designer fragen
+@grauHintergrund: #E3E3E3;
+@grauHintergrundHell: #F0F0F0;
+@gray-footer-bg: @grauHintergrundHell;
+@alertColor: #333333;
+@primaryHover: #B40014;
+
+@success-light: #DFF6DD;
+@info-light: #d1ecf1;
+@warning-light: #FFF4CE;
+@danger-light: #f9ccd1;
+@light-light: $white;
+
+@gray-base:              @dunkelblue;
+@gray-darker:            @dunkelblue;
+@gray-dark:              @black;
+@gray:                   @gray-base;
+@gray-light:             @dunkelblau50;
+@gray-lighter:           @dunkelblau25;
+
+@brand-primary:          @red;
+@brand-success:          @success-light;
+@brand-info:             @mittelblau25;
+@brand-warning:          @warning-light;
+@brand-danger:           @danger-light;
 
 
 //== Scaffolding
@@ -26,12 +66,12 @@
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-@body-bg:               #fff;
+@body-bg:               @white;
 //** Global text color on `<body>`.
-@text-color:            @gray-dark;
+@text-color:            @black;
 
 //** Global textual link color.
-@link-color:            @brand-primary;
+@link-color:            @hyperlink;
 //** Link hover color set via `darken()` function.
 @link-hover-color:      darken(@link-color, 15%);
 //** Link hover decoration.
@@ -42,33 +82,37 @@
 //
 //## Font, line-height, and color for body text, headings, and more.
 
-@font-family-sans-serif:  "Source Sans Pro", Calibri, Candara, Arial, sans-serif;
+@font-family-sans-serif:  Arial, Helvetica, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
 @font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
 @font-family-base:        @font-family-sans-serif;
 
-@font-size-base:          15px;
-@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
-@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+@font-size-base:          14px;
+@font-size-large:         ceil((@font-size-base * 1.5));
+@font-size-small:         ceil((@font-size-base * 1.0));
 
-@font-size-h1:            floor((@font-size-base * 2.6)); // ~36px
-@font-size-h2:            floor((@font-size-base * 2.15)); // ~30px
-@font-size-h3:            ceil((@font-size-base * 1.7)); // ~24px
-@font-size-h4:            ceil((@font-size-base * 1.25)); // ~18px
+@font-weight-light: 300;
+@font-weight-normal: 400;
+@font-weight-bold: 700;
+
+@font-size-h1:            floor((@font-size-base * 2.25));
+@font-size-h2:            floor((@font-size-base * 1.5));
+@font-size-h3:            ceil((@font-size-base * 1.3));
+@font-size-h4:            ceil((@font-size-base * 1.0));
 @font-size-h5:            @font-size-base;
-@font-size-h6:            ceil((@font-size-base * 0.85)); // ~12px
+@font-size-h6:            ceil((@font-size-base * 1.0));
 
 //** Unit-less `line-height` for use in components like buttons.
-@line-height-base:        1.428571429; // 20/14
+@line-height-base:        1.5;
 //** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
 @line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
 
 //** By default, this inherits from the `<body>`.
 @headings-font-family:    @font-family-base;
-@headings-font-weight:    300;
-@headings-line-height:    1.1;
-@headings-color:          inherit;
+@headings-font-weight:    @font-weight-bold;
+@headings-line-height:    1.25;
+@headings-color:          @dunkelblue;
 
 
 //== Iconography
@@ -142,13 +186,13 @@
 //
 //## For each of Bootstrap's buttons, define text, background and border color.
 
-@btn-font-weight:                normal;
+@btn-font-weight:                bold;
 
-@btn-default-color:              #fff;
-@btn-default-bg:                 @gray-darker;
+@btn-default-color:              @black;
+@btn-default-bg:                 @grauHintergrund;
 @btn-default-border:             @btn-default-bg;
 
-@btn-primary-color:              @btn-default-color;
+@btn-primary-color:              @white;
 @btn-primary-bg:                 @brand-primary;
 @btn-primary-border:             @btn-primary-bg;
 
@@ -181,14 +225,14 @@
 //##
 
 //** `<input>` background color
-@input-bg:                       #fff;
+@input-bg:                       @white;
 //** `<input disabled>` background color
 @input-bg-disabled:              @gray-lighter;
 
 //** Text color for `<input>`s
 @input-color:                    @text-color;
 //** `<input>` border color
-@input-border:                   #ccc;
+@input-border:                   @black;
 
 // TODO: Rename `@input-border-radius` to `@input-border-radius-base` in v4
 //** Default `.form-control` border radius
@@ -200,7 +244,7 @@
 @input-border-radius-small:      @border-radius-small;
 
 //** Border color for inputs on focus
-@input-border-focus:             #66afe9;
+@input-border-focus:             @highlightblau;
 
 //** Placeholder text color
 @input-color-placeholder:        @gray-light;
@@ -219,7 +263,7 @@
 @legend-border-color:            #e5e5e5;
 
 //** Background color for textual input addons
-@input-group-addon-bg:           @gray-lighter;
+@input-group-addon-bg:           @white;
 //** Border color for textual input addons
 @input-group-addon-border-color: @input-border;
 
@@ -485,7 +529,7 @@
 //##
 
 @jumbotron-padding:              30px;
-@jumbotron-color:                inherit;
+@jumbotron-color:                @white;
 @jumbotron-bg:                   @gray-lighter;
 @jumbotron-heading-color:        inherit;
 @jumbotron-font-size:            ceil((@font-size-base * 1.5));
@@ -496,19 +540,19 @@
 //
 //## Define colors for form feedback states and, by default, alerts.
 
-@state-success-text:             #fff;
+@state-success-text:             @black;
 @state-success-bg:               @brand-success;
 @state-success-border:           darken(spin(@state-success-bg, -10), 5%);
 
-@state-info-text:                #fff;
+@state-info-text:                @black;
 @state-info-bg:                  @brand-info;
 @state-info-border:              darken(spin(@state-info-bg, -10), 7%);
 
-@state-warning-text:             #fff;
+@state-warning-text:             @black;
 @state-warning-bg:               @brand-warning;
 @state-warning-border:           darken(spin(@state-warning-bg, -10), 3%);
 
-@state-danger-text:              #fff;
+@state-danger-text:              @black;
 @state-danger-bg:                @brand-danger;
 @state-danger-border:            darken(spin(@state-danger-bg, -10), 3%);
 
@@ -578,9 +622,9 @@
 @label-danger-bg:             @brand-danger;
 
 //** Default label text color
-@label-color:                 #fff;
+@label-color:                 @black;
 //** Default text color of a linked label
-@label-link-hover-color:      #fff;
+@label-link-hover-color:      @hyperlink;
 
 
 //== Modals
@@ -619,25 +663,26 @@
 //== Alerts
 //
 //## Define alert colors, border radius, and padding.
+@alert-link-text: @hyperlink;
 
 @alert-padding:               15px;
 @alert-border-radius:         @border-radius-base;
 @alert-link-font-weight:      bold;
 
 @alert-success-bg:            @state-success-bg;
-@alert-success-text:          @state-success-text;
+@alert-success-text:          @black;
 @alert-success-border:        @state-success-border;
 
 @alert-info-bg:               @state-info-bg;
-@alert-info-text:             @state-info-text;
+@alert-info-text:             @black;;
 @alert-info-border:           @state-info-border;
 
 @alert-warning-bg:            @state-warning-bg;
-@alert-warning-text:          @state-warning-text;
+@alert-warning-text:          @black;;
 @alert-warning-border:        @state-warning-border;
 
 @alert-danger-bg:             @state-danger-bg;
-@alert-danger-text:           @state-danger-text;
+@alert-danger-text:           @black;;
 @alert-danger-border:         @state-danger-border;
 
 
@@ -648,12 +693,12 @@
 //** Background color of the whole progress component
 @progress-bg:                 #ccc;
 //** Progress bar text color
-@progress-bar-color:          #fff;
+@progress-bar-color:          @dunkelblue;
 //** Variable for setting rounded corners on progress bar.
 @progress-border-radius:      @border-radius-base;
 
 //** Default progress bar color
-@progress-bar-bg:             @brand-primary;
+@progress-bar-bg:             @dunkelblue;
 //** Success progress bar color
 @progress-bar-success-bg:     @brand-success;
 //** Warning progress bar color
@@ -867,3 +912,8 @@
 @dl-horizontal-breakpoint:    @grid-float-breakpoint;
 //** Horizontal line color.
 @hr-border:                   @gray-lighter;
+
+
+
+
+
